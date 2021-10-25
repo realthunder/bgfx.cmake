@@ -52,7 +52,7 @@ option(BGFX_CONFIG_VIDEO "Enable hardware video decoder" ON)
 
 set(BGFX_OPENGL_VERSION "" CACHE STRING "Specify minimum opengl version")
 set(BGFX_OPENGLES_VERSION "" CACHE STRING "Specify minimum OpenGL ES version")
-set(BGFX_LIBRARY_TYPE "STATIC" CACHE STRING "Linking type for library")
+set(BGFX_LIBRARY_TYPE "SHARED" CACHE STRING "Linking type for library")
 set_property(CACHE BGFX_LIBRARY_TYPE PROPERTY STRINGS "STATIC" "SHARED")
 
 set(BGFX_CONFIG_DEFAULT_MAX_ENCODERS "" CACHE STRING "Specify default maximum encoder count (multithreaded only)")
