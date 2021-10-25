@@ -8,7 +8,7 @@
 # You should have received a copy of the CC0 Public Domain Dedication along with
 # this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-if( TARGET glslang )
+if( TARGET bgfx-glslang )
 	return()
 endif()
 
@@ -28,8 +28,8 @@ else()
 	list( APPEND GLSLANG_SOURCES ${BGFX_DIR}/3rdparty/glslang/glslang/OSDependent/Unix/ossource.cpp )
 endif()
 
-add_library( glslang STATIC EXCLUDE_FROM_ALL ${GLSLANG_SOURCES} )
-target_include_directories( glslang PUBLIC
+add_library( bgfx-glslang STATIC EXCLUDE_FROM_ALL ${GLSLANG_SOURCES} )
+target_include_directories( bgfx-glslang PUBLIC
 	${BGFX_DIR}/3rdparty/spirv-tools/include
 	${BGFX_DIR}/3rdparty/spirv-tools/source
 	${BGFX_DIR}/3rdparty/glslang
@@ -40,10 +40,10 @@ target_include_directories( glslang PUBLIC
 	${BGFX_DIR}/3rdparty
 )
 
-set_target_properties( glslang PROPERTIES FOLDER "bgfx/3rdparty" )
+set_target_properties( bgfx-glslang PROPERTIES FOLDER "bgfx/3rdparty" )
 
 if( MSVC )
-	target_compile_options( glslang PRIVATE
+	target_compile_options( bgfx-glslang PRIVATE
 		"/wd4005"
 		"/wd4065"
 		"/wd4100"
@@ -60,7 +60,7 @@ if( MSVC )
 		"/wd4838"
 	)
 else()
-	target_compile_options( glslang PRIVATE
+	target_compile_options( bgfx-glslang PRIVATE
 		"-Wno-ignored-qualifiers"
 		"-Wno-implicit-fallthrough"
 		"-Wno-missing-field-initializers"
@@ -79,7 +79,7 @@ else()
 endif()
 
 if( APPLE )
-	target_compile_options( glslang PRIVATE
+	target_compile_options( bgfx-glslang PRIVATE
 		"-Wno-c++11-extensions"
 		"-Wno-unused-const-variable"
 		"-Wno-deprecated-register"
@@ -87,12 +87,12 @@ if( APPLE )
 endif()
 
 if( UNIX AND NOT APPLE )
-	target_compile_options( glslang PRIVATE
+	target_compile_options( bgfx-glslang PRIVATE
 		"-Wno-unused-but-set-variable"
 	)
 endif()
 
-target_compile_definitions( glslang PRIVATE
+target_compile_definitions( bgfx-glslang PRIVATE
 	ENABLE_OPT=1
 	ENABLE_HLSL=1
 )
