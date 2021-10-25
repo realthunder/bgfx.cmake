@@ -1,1 +1,1 @@
-#include "@BGFX_DIR@/examples/common/bounds.cpp"
+#include "@BX_DIR@/src/bounds.cpp"
