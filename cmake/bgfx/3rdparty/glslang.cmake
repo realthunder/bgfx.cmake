@@ -41,20 +41,20 @@ else()
 	list(FILTER GLSLANG_SOURCES EXCLUDE REGEX "glslang/OSDependent/Windows/.*.h")
 endif()
 
-add_library(glslang STATIC ${GLSLANG_SOURCES})
+add_library(bgfx-glslang STATIC ${GLSLANG_SOURCES})
 
 target_compile_definitions(
-	glslang
+	bgfx-glslang
 	PRIVATE #
 			ENABLE_OPT=1 # spriv-tools
 			ENABLE_HLSL=1 #
 )
 
 # Put in a "bgfx" folder in Visual Studio
-set_target_properties(glslang PROPERTIES FOLDER "bgfx")
+set_target_properties(bgfx-glslang PROPERTIES FOLDER "bgfx")
 
 target_include_directories(
-	glslang
+	bgfx-glslang
 	PUBLIC ${GLSLANG}
 		   ${GLSLANG}/glslang/Public
 		   ${GLSLANG}/glslang/Include

@@ -25,7 +25,7 @@ target_link_libraries(
 			bimg
 			bgfx-vertexlayout
 			fcpp
-			glslang
+			bgfx-glslang
 			glsl-optimizer
 			spirv-opt
 			spirv-cross
